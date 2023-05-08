@@ -81,7 +81,6 @@ export function listNotes(
                 ),
             []
         );
-        console.log(middleNotes);
         const endingNotes: NoteInformation[] = notes
             .filter((noteType: NoteType) => noteType.note <= lastNote.key)
             .map(

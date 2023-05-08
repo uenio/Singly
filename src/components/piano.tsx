@@ -1,5 +1,5 @@
 import React from 'react';
-import { listNotes, notes } from '../helpers/notes';
+import { listNotes } from '../helpers/notes';
 import { Key } from './key';
 import { NoteInformation } from './note';
 
@@ -26,7 +26,9 @@ export default class Piano extends React.Component<PianoProps, PianoState> {
         const visibleNotes = listNotes(
             this.state.firstNote,
             this.state.lastNote
-        ).map((noteInfo: NoteInformation) => <Key noteInfo={noteInfo} />);
+        ).map((noteInfo: NoteInformation) => (
+            <Key key={noteInfo.getNote()} noteInfo={noteInfo} />
+        ));
         return <div>{visibleNotes}</div>;
     }
 }
