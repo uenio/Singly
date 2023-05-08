@@ -1,16 +1,25 @@
 import { useState } from 'react';
-import { Button } from 'reactstrap';
 import { endPlaying, play, startPlaying } from '../../helpers/Sound';
 import { NoteInformation } from './Note';
 
-export default function Key({ noteInfo }: { noteInfo: NoteInformation }) {
+export default function Key({
+    noteInfo,
+    shouldHoldNote = false,
+}: {
+    noteInfo: NoteInformation;
+    shouldHoldNote?: boolean;
+}) {
     const [isPlaying, setIsPlaying] = useState(false);
     const note = noteInfo.getNote();
 
     function onKeyDown() {
         if (!isPlaying) {
-            startPlaying(note);
-            setIsPlaying(true);
+            if (shouldHoldNote) {
+                play(note);
+            } else {
+                startPlaying(note);
+                setIsPlaying(true);
+            }
         }
     }
 
