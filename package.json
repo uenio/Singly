@@ -18,6 +18,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "lint": "eslint src",
+    "format": "prettier --config .prettierrc 'src/**/*.{ts,tsx}' --write",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -40,5 +42,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8"
   }
 }
