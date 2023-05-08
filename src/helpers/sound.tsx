@@ -1,4 +1,4 @@
-import * as Tone from 'tone'
+import * as Tone from 'tone';
 
 export function play(note: string) {
     const piano = new Tone.Sampler({
@@ -10,9 +10,9 @@ export function play(note: string) {
         },
         release: 1,
         baseUrl: 'https://tonejs.github.io/audio/salamander/',
-    }).toDestination()
+    }).toDestination();
     Tone.loaded().then(() => {
-        piano.triggerAttackRelease(`${note}`, 4)
-    })
-    console.log(note)
+        piano.triggerAttackRelease(`${note}`, 4);
+    });
+    console.log(note);
 }
