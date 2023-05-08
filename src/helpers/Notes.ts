@@ -1,4 +1,4 @@
-import { NoteInformation } from '../components/note';
+import { NoteInformation } from '../components/piano/Note';
 import _ from 'lodash';
 
 export type NoteType = {

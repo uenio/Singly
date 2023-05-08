@@ -1,7 +1,7 @@
 import React from 'react';
-import { listNotes } from '../helpers/notes';
-import { Key } from './key';
-import { NoteInformation } from './note';
+import { listNotes } from '../../helpers/Notes';
+import { Key } from './Key';
+import { NoteInformation } from './Note';
 
 interface PianoProps {
     firstNote?: NoteInformation;
