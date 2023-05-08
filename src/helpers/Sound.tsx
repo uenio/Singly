@@ -27,3 +27,17 @@ export function play(note: string) {
         log.debug(`note played: ${note}`);
     }
 }
+
+export function startPlaying(note: string) {
+    if (loaded) {
+        piano.triggerAttack(note);
+        log.debug(`note started: ${note}`);
+    }
+}
+
+export function endPlaying(note: string) {
+    if (loaded) {
+        piano.triggerRelease(note);
+        log.debug(`note ended: ${note}`);
+    }
+}
