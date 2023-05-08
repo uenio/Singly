@@ -21,10 +21,18 @@ const piano = new Tone.Sampler({
     },
 }).toDestination();
 
+export function getBpm(): number {
+    return Tone.getTransport().bpm.value;
+}
+
+export function setBpm(bpm: number) {
+    Tone.getTransport().bpm.value = bpm;
+}
+
 export function play(note: string) {
     if (loaded) {
         piano.triggerAttackRelease(note, 4);
-        log.debug(`note played: ${note}`);
+        log.debug(`note played: ${note} bpm: ${getBpm()}`);
     }
 }
 

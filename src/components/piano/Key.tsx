@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { endPlaying, play, startPlaying } from '../../helpers/Sound';
+import { endPlaying, play, startPlaying } from '../../helpers/SoundController';
 import { NoteInformation } from './Note';
 
 export default function Key({
