@@ -1,3 +1,5 @@
+import './Key.css';
+
 import { useState } from 'react';
 import { endPlaying, play, startPlaying } from '../../helpers/SoundController';
 import { NoteInformation } from './Note';
@@ -11,6 +13,7 @@ export default function Key({
 }) {
     const [isPlaying, setIsPlaying] = useState(false);
     const note = noteInfo.getNote();
+    const isSharp = noteInfo.isSharp();
 
     function onKeyDown() {
         if (!isPlaying) {
@@ -30,9 +33,32 @@ export default function Key({
         }
     }
 
+    let keyClassName = 'key';
+    if (isSharp) {
+        keyClassName += ' sharp';
+    }
+    if (isPlaying) {
+        keyClassName += ' pressed';
+    }
+    if (isSharp) {
+        return (
+            <div
+                className={keyClassName}
+                onMouseDown={onKeyDown}
+                onMouseUp={onKeyUp}
+                onMouseOut={onKeyUp}
+            ></div>
+        );
+    }
+
     return (
-        <button color="primary" onMouseDown={onKeyDown} onMouseUp={onKeyUp}>
-            {note}
-        </button>
+        <div
+            className={keyClassName}
+            onMouseDown={onKeyDown}
+            onMouseUp={onKeyUp}
+            onMouseOut={onKeyUp}
+        >
+            <div className="key-text">{note.toUpperCase()}</div>
+        </div>
     );
 }

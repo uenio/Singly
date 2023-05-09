@@ -12,4 +12,8 @@ export class NoteInformation {
     public getNote(): string {
         return this.key + this.octave;
     }
+
+    public isSharp(): boolean {
+        return this.key.length > 1;
+    }
 }

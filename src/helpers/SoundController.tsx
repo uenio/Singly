@@ -29,21 +29,21 @@ export function setBpm(bpm: number) {
     Tone.getTransport().bpm.value = bpm;
 }
 
-export function play(note: string) {
+export function play(note: string | string[], delay?: number) {
     if (loaded) {
-        piano.triggerAttackRelease(note, 4);
+        piano.triggerAttackRelease(note, 4, delay);
         log.debug(`note played: ${note} bpm: ${getBpm()}`);
     }
 }
 
-export function startPlaying(note: string) {
+export function startPlaying(note: string | string[]) {
     if (loaded) {
         piano.triggerAttack(note);
         log.debug(`note started: ${note}`);
     }
 }
 
-export function endPlaying(note: string) {
+export function endPlaying(note: string | string[]) {
     if (loaded) {
         piano.triggerRelease(note);
         log.debug(`note ended: ${note}`);

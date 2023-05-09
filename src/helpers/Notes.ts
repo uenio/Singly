@@ -5,6 +5,21 @@ export type NoteType = {
     [key: string]: string;
 };
 
+export const notes2: string[] = [
+    'A',
+    'A#',
+    'B',
+    'C',
+    'C#',
+    'D',
+    'D#',
+    'E',
+    'F',
+    'F#',
+    'G',
+    'G#',
+];
+
 export const notes: NoteType[] = [
     {
         note: 'A',

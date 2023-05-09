@@ -1,22 +1,34 @@
 import React, { useState } from 'react';
-import {
-    Navbar,
-    NavbarBrand,
-    Collapse,
-    Nav,
-    NavItem,
-    NavLink,
-} from 'react-bootstrap';
-import DropdownItem from 'react-bootstrap/esm/DropdownItem';
-import DropdownMenu from 'react-bootstrap/esm/DropdownMenu';
-import DropdownToggle from 'react-bootstrap/esm/DropdownToggle';
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 
-function MainMenu(props: any) {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggle = () => setIsOpen(!isOpen);
-
-    return <div></div>;
+export default function MainMenu(props: any) {
+    return (
+        <Navbar bg="light" expand="lg">
+            <Container>
+                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link href="#home">Home</Nav.Link>
+                        <Nav.Link href="#link">Link</Nav.Link>
+                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                            <NavDropdown.Item href="#action/3.1">
+                                Action
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.2">
+                                Another action
+                            </NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.3">
+                                Something
+                            </NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#action/3.4">
+                                Separated link
+                            </NavDropdown.Item>
+                        </NavDropdown>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
+    );
 }
-
-export default MainMenu;

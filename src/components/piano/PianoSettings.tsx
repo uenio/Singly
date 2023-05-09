@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Button, Col, Form, Offcanvas, Row } from 'react-bootstrap';
+import { Button, Form, Offcanvas } from 'react-bootstrap';
 import { ILogObj, Logger } from 'tslog';
-import { getBpm, setBpm } from '../../helpers/SoundController';
+import { setBpm } from '../../helpers/SoundController';
 
 const log: Logger<ILogObj> = new Logger();
 
@@ -36,14 +36,13 @@ export default function PianoSettings({
             </Button>
             <Offcanvas show={show} onHide={handleClose}>
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                    <Offcanvas.Title>Settings</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    Some text as placeholder. In real life you can have the
-                    elements you have chosen. Like, text, images, lists, etc.\
                     <Form>
+                        General
                         <Form.Group>
-                            <Form.Label>My Label</Form.Label>
+                            <Form.Label>BPM</Form.Label>
                             <Form.Range
                                 value={bpm}
                                 onChange={onBpmChange}
@@ -51,6 +50,7 @@ export default function PianoSettings({
                                 max={120}
                             />
                         </Form.Group>
+                        Piano Playing
                         <Form.Check
                             type="switch"
                             id="custom-switch"
