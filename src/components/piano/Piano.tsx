@@ -45,7 +45,7 @@ export default function Piano({ firstNote, lastNote }: Params) {
     );
     let delay = Tone.now();
     notes.forEach((n) => {
-        delay += 5;
+        delay += 1;
         play(n, delay);
     });
     log.debug(notes);

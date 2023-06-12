@@ -1,6 +1,6 @@
 import { Logger, ILogObj } from 'tslog';
 import { NoteInformation } from '../components/piano/Note';
-import { notes2 } from './Notes';
+import { baseNotes } from './Notes';
 
 const log: Logger<ILogObj> = new Logger();
 
@@ -12,7 +12,7 @@ export function notesToPlay(
     endingNote: NoteInformation,
     pattern: number[]
 ): string[][] {
-    const referenceNotes: string[] = notes2;
+    const referenceNotes: string[] = baseNotes;
     const endingKey = endingNote.key;
     const endingOctave = endingNote.octave;
     let currentNoteIndex = referenceNotes.indexOf(startingNote.key);
@@ -42,7 +42,7 @@ export function notesToPlay(
 }
 
 function getNote(noteIndex: number, octave: number, offset: number): string {
-    const referenceNotes: string[] = notes2;
+    const referenceNotes: string[] = baseNotes;
     const arrayIndex: number = noteIndex - 1 + offset;
     const note: string =
         arrayIndex >= referenceNotes.length

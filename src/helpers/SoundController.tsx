@@ -1,18 +1,12 @@
 import { Logger, ILogObj } from 'tslog';
 import * as Tone from 'tone';
+import { base_url, urls } from './tone/Salamander';
 
 const log: Logger<ILogObj> = new Logger();
-
-const base_url = 'https://tonejs.github.io/audio/salamander/';
 let loaded = false;
 
-const piano = new Tone.Sampler({
-    urls: {
-        C4: 'C4.mp3',
-        'D#4': 'Ds4.mp3',
-        'F#4': 'Fs4.mp3',
-        A4: 'A4.mp3',
-    },
+const sampler = new Tone.Sampler({
+    urls,
     release: 1,
     baseUrl: base_url,
     onload: () => {
@@ -31,21 +25,21 @@ export function setBpm(bpm: number) {
 
 export function play(note: string | string[], delay?: number) {
     if (loaded) {
-        piano.triggerAttackRelease(note, 4, delay);
+        sampler.triggerAttackRelease(note, 4, delay);
         log.debug(`note played: ${note} bpm: ${getBpm()}`);
     }
 }
 
 export function startPlaying(note: string | string[]) {
     if (loaded) {
-        piano.triggerAttack(note);
+        sampler.triggerAttack(note);
         log.debug(`note started: ${note}`);
     }
 }
 
 export function endPlaying(note: string | string[]) {
     if (loaded) {
-        piano.triggerRelease(note);
+        sampler.triggerRelease(note);
         log.debug(`note ended: ${note}`);
     }
 }
